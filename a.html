@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试demo</title>
+</head>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<body>
+    
+</body>
+<script>
+    const apiKey = "AIzaSyAr3w_0G9QvdxF7I3N3b9t30oChxJEXXrg"; // 替换为你的 API key
+
+const data = {
+  contents: [{
+    parts: [{
+      text: "你是谁"
+    }]
+  }]
+};
+
+const config = {
+  method: 'post',
+  url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`,
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  data: data,
+   proxy: {
+    host: 'data.jp.dbas.amazon.rilegoef.buzz/P8TbLV/api', // 替换为你的代理服务器地址
+    port: 41443 // 替换为你的代理服务器端口
+  }
+};
+
+axios(config)
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+</script>
+</html>
